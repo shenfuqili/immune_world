@@ -70,6 +70,6 @@ class GeneEmbedding(nn.Module):
         """Continuous sinusoidal encoding (paper p.27 L618–623)."""
         # pseudo_time: (B, T) ∈ [0, max_pseudo_time]; scaled to the sinusoidal base.
         scaled_time = pseudo_time.unsqueeze(-1)  # (B, T, 1)
-        freqs = self._freqs.to(device=pseudo_time.device, dtype=pseudo_time.dtype)
+        freqs = self.get_buffer("_freqs").to(device=pseudo_time.device, dtype=pseudo_time.dtype)
         angles = scaled_time * freqs  # (B, T, d_model / 2)
         return torch.cat([torch.sin(angles), torch.cos(angles)], dim=-1)

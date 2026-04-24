@@ -24,7 +24,8 @@ class GradientReversalFn(torch.autograd.Function):
         return x.view_as(x)
 
     @staticmethod
-    def backward(ctx: Any, grad_output: Tensor) -> tuple[Tensor, None]:
+    def backward(ctx: Any, *grad_outputs: Tensor) -> tuple[Tensor, None]:
+        (grad_output,) = grad_outputs
         return grad_output.neg() * ctx.lambda_adv, None
 
 
