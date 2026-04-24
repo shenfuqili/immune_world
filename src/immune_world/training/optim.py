@@ -9,15 +9,15 @@ from __future__ import annotations
 import math
 from typing import TYPE_CHECKING
 
-import torch
+from torch.optim.adamw import AdamW
 from torch.optim.lr_scheduler import LambdaLR
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
 
     from torch.nn import Parameter
-    from torch.optim import Optimizer
     from torch.optim.lr_scheduler import LRScheduler
+    from torch.optim.optimizer import Optimizer
 
 
 def build_optimizer(
@@ -28,7 +28,7 @@ def build_optimizer(
     betas: tuple[float, float] = (0.9, 0.95),
 ) -> Optimizer:
     """Construct the AdamW optimiser used by every training run (pretrain + fine-tune)."""
-    return torch.optim.AdamW(params, lr=lr, weight_decay=weight_decay, betas=betas)
+    return AdamW(params, lr=lr, weight_decay=weight_decay, betas=betas)
 
 
 def build_scheduler(

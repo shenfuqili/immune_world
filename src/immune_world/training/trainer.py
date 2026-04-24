@@ -17,6 +17,8 @@ if TYPE_CHECKING:
     from collections.abc import Callable, Iterable
 
     from torch.nn import Module
+    from torch.optim.lr_scheduler import LRScheduler
+    from torch.optim.optimizer import Optimizer
 
 _LOG = get_logger(__name__)
 
@@ -34,8 +36,8 @@ class Trainer:
     def __init__(
         self,
         model: Module,
-        optimizer: torch.optim.Optimizer,
-        scheduler: torch.optim.lr_scheduler.LRScheduler | None,
+        optimizer: Optimizer,
+        scheduler: LRScheduler | None,
         step_fn: Callable[[Module, object], torch.Tensor],
         cfg: TrainerConfig,
     ) -> None:
