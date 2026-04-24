@@ -1,0 +1,13 @@
+# Table S3 row: learning-rate sensitivity (fine-tune).
+defaults:
+  - main
+  - _self_
+
+phase: sensitivity
+sweep:
+  lr: [1.0e-5, 5.0e-5, 1.0e-4, 3.0e-4, 5.0e-4, 1.0e-3, 3.0e-3]
+default: 3.0e-4
+expected:
+  norman_pearson_r: [0.847, 0.878, 0.901, 0.914, 0.907, 0.883, 0.791]
+  trajectory_cbdir: [0.831, 0.858, 0.871, 0.881, 0.876, 0.852, 0.763]
+  icb_auc:          [0.859, 0.874, 0.883, 0.891, 0.886, 0.871, 0.814]

@@ -1,0 +1,13 @@
+# Table S3 row: number of attention heads H.
+defaults:
+  - main
+  - _self_
+
+phase: sensitivity
+sweep:
+  n_heads: [1, 2, 4, 8, 12, 16, 32]
+default: 8
+expected:
+  norman_pearson_r: [0.851, 0.874, 0.898, 0.914, 0.912, 0.909, 0.901]
+  trajectory_cbdir: [0.814, 0.843, 0.869, 0.881, 0.879, 0.876, 0.868]
+  icb_auc:          [0.854, 0.871, 0.884, 0.891, 0.890, 0.888, 0.881]

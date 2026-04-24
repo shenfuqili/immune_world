@@ -1,0 +1,15 @@
+# Table 3 row: Reduced corpus (3.1M cells, i.e. 25% of 12.4M).
+# Expected Pearson r(Norman) = 0.823 (-0.091). See Table S6 for the per-epoch scan.
+defaults:
+  - main
+  - _self_
+
+phase: ablation
+pretrain:
+  corpus:
+    total: 3_100_000        # 25% of 12.4M (§2.6 L388-L390; §4.6 Table S6)
+expected:
+  norman_pearson_r: 0.823
+  bm_cbdir: 0.819
+  deconv_f1: 0.703
+  icb_auc: 0.853

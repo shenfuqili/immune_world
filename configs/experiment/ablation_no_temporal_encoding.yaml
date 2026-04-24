@@ -1,0 +1,13 @@
+# Table 3 row: w/o temporal encoding. Expected bm CBDir = 0.743 (-0.138).
+defaults:
+  - main
+  - _self_
+
+phase: ablation
+ablate:
+  temporal_positional_encoding: true  # sets p_t = 0 in Eq. (2)
+expected:
+  norman_pearson_r: 0.856
+  bm_cbdir: 0.743
+  deconv_f1: 0.721
+  icb_auc: 0.878

@@ -1,0 +1,53 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.tox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+env/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Claude Code / local assistant state (never publish)
+.claude/
+CLAUDE.md
+
+# Run artefacts
+outputs/
+wandb/
+runs/
+checkpoints/
+*.ckpt
+*.pt
+lightning_logs/
+
+# Dataset caches (large; fetched via scripts/prepare_data.sh)
+data/raw/
+data/processed/
+data/cache/
+*.h5ad
+
+# Generated figures (`scripts/generate_figures.py` writes here)
+assets/*.pdf
+assets/*.png
+!assets/.gitkeep

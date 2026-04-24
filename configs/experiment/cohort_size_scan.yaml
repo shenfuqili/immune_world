@@ -1,0 +1,19 @@
+# Table 4 bottom: ICB AUC vs number of training cohorts (3/5/7/9/11/13).
+defaults:
+  - main
+  - _self_
+
+phase: evaluation
+task: icb
+scan:
+  training_cohorts: [3, 5, 7, 9, 11, 13]
+expected:
+  auc_vs_training_cohorts:
+    "3":  0.811
+    "5":  0.844
+    "7":  0.862
+    "9":  0.878
+    "11": 0.884
+    "13": 0.891
+  mean_auc: 0.862
+  std_auc: 0.030

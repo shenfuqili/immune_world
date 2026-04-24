@@ -1,0 +1,13 @@
+# Table 3 row: w/o trajectory-aware attention. Expected Pearson r(Norman) = 0.727 (-0.187).
+defaults:
+  - main
+  - _self_
+
+phase: ablation
+ablate:
+  trajectory_aware_attention: true    # replaces TrajAttn with vanilla causal self-attention
+expected:
+  norman_pearson_r: 0.727
+  bm_cbdir: 0.680
+  deconv_f1: 0.682
+  icb_auc: 0.822

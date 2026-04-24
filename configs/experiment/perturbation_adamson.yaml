@@ -1,0 +1,19 @@
+# Table 1 column: Adamson Perturb-Seq. Expected Pearson r = 0.821 ± 0.011.
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: perturbation
+data:
+  name: adamson
+  accession: GSE90546
+  n_cells: 68603
+  n_perturbations: 87
+  platform: "10x Chromium"
+  split:
+    strategy: perturbation_identity
+    ratio: [0.8, 0.1, 0.1]
+expected:
+  pearson_r: 0.821
+  pearson_r_std: 0.011

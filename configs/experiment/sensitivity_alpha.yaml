@@ -1,0 +1,13 @@
+# Table S3 row: initial temporal decay α sensitivity.
+defaults:
+  - main
+  - _self_
+
+phase: sensitivity
+sweep:
+  alpha_init: [0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1.0]
+default: 0.01
+expected:
+  norman_pearson_r: [0.891, 0.904, 0.914, 0.908, 0.893, 0.861, 0.823]
+  trajectory_cbdir: [0.847, 0.867, 0.881, 0.874, 0.856, 0.812, 0.771]
+  icb_auc:          [0.879, 0.885, 0.891, 0.888, 0.882, 0.863, 0.841]

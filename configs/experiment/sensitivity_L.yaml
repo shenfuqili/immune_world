@@ -1,0 +1,14 @@
+# Table S3 row: number of transformer layers L.
+defaults:
+  - main
+  - _self_
+
+phase: sensitivity
+sweep:
+  n_layers: [4, 6, 8, 12, 16, 24, 32]
+default: 12
+expected:
+  # L=16 gives +0.002 Pearson r but +33% parameters (112M → 148M); paper picks L=12 (§Table S3 note).
+  norman_pearson_r: [0.842, 0.869, 0.893, 0.914, 0.916, 0.913, 0.906]
+  trajectory_cbdir: [0.809, 0.838, 0.863, 0.881, 0.883, 0.880, 0.872]
+  icb_auc:          [0.851, 0.867, 0.879, 0.891, 0.893, 0.890, 0.884]

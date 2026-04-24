@@ -1,0 +1,28 @@
+# Table 1 column + Table 2 cell-type F1: Pancreas synthetic bulk deconvolution.
+# Expected overall F1 = 0.730 ± 0.019.
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: deconvolution
+data:
+  name: deconvolution_pancreas
+  reference: pancreas
+  cells_per_mixture: 500
+  f1_threshold: 0.05
+  dirichlet_alpha: 1.0
+  split: { strategy: split_by_mixture, counts: [350, 50, 100] }
+  n_cell_types: 8
+expected:
+  overall_f1: 0.730
+  overall_f1_std: 0.019
+  per_type_f1:
+    CD8_T: 0.812
+    CD4_T: 0.789
+    Tregs: 0.691
+    B: 0.756
+    NK: 0.741
+    DC: 0.704
+    Macrophages: 0.768
+    Monocytes: 0.723

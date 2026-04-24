@@ -1,0 +1,19 @@
+# Table 1 column: Norman Perturb-Seq. Expected mean Pearson r = 0.914 ± 0.008.
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: perturbation
+data:
+  name: norman
+  accession: GSE133344
+  n_cells: 91205
+  n_perturbations: 284
+  platform: "10x Chromium"
+  split:
+    strategy: perturbation_identity
+    ratio: [0.8, 0.1, 0.1]
+expected:
+  pearson_r: 0.914
+  pearson_r_std: 0.008

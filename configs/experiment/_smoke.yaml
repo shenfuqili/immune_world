@@ -1,0 +1,14 @@
+# Pytest smoke-only config. DO NOT USE FOR REPORTING.
+#
+# This exists solely so `pytest -q tests/training/test_training_smoke.py` can run 2 optimiser
+# steps inside a CPU CI job. Paper values live in `configs/experiment/main.yaml`.
+defaults:
+  - /model: base
+  - /data: _smoke
+  - /train: _smoke
+  - _self_
+
+seed: 42
+precision: fp32
+world_size: 1
+smoke_steps: 2

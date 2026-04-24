@@ -1,0 +1,15 @@
+# Table 1 / S1 trajectory: Dentate Gyrus. Expected CBDir = 0.874.
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: trajectory
+data:
+  name: dentate_gyrus
+  source: "scVelo datasets (Hochgerner et al. 2018)"
+  n_cells: 2930
+  platform: "10x Chromium"
+  split: { strategy: full_dataset_evaluation }
+expected:
+  cbdir: 0.874

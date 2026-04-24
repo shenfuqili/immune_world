@@ -1,0 +1,13 @@
+# Table 3 row: w/o perturbation engine. Expected Pearson r(Norman) = 0.772 (-0.142).
+defaults:
+  - main
+  - _self_
+
+phase: ablation
+ablate:
+  perturbation_engine: true           # drops Eq. (7) + Eq. (8)
+expected:
+  norman_pearson_r: 0.772
+  bm_cbdir: 0.853
+  deconv_f1: 0.715
+  icb_auc: 0.871

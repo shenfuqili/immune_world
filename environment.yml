@@ -1,0 +1,41 @@
+name: immune_world
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pip
+  - cuda-toolkit=12.1                  # matches Dockerfile base image
+  - pytorch=2.3.*
+  - pytorch-cuda=12.1
+  - cudnn=8.9.*
+  - numpy=1.26.*
+  - pandas=2.2.*
+  - scipy=1.13.*
+  - scikit-learn=1.4.*
+  - h5py=3.11.*
+  - zarr=2.18.*
+  - anndata=0.10.*
+  - scanpy=1.10.*
+  - scvelo=0.3.*
+  - hydra-core=1.3.*
+  - omegaconf=2.3.*
+  - tqdm
+  - rich
+  - pyyaml
+  - pytest=8.2.*
+  - pytest-cov
+  - ruff
+  - black
+  - isort
+  - mypy
+  - pre-commit
+  - pip:
+      - dtw-python==1.3.1
+      - lifelines==0.28.0
+      - pingouin==0.5.4
+      # install on a CUDA machine after the env is active:
+      # - flash-attn==2.6.3
+      - -e ..

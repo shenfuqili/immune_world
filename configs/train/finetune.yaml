@@ -1,0 +1,11 @@
+# Fine-tuning schedule — Sec. 2.1 L220-L225. See docs/project-context.md §8.
+defaults:
+  - base
+
+lr: 3.0e-4
+weight_decay: 0.01
+scheduler: cosine_annealing
+batch_size: 256
+early_stopping_patience: 10
+seeds: [42, 123, 456]
+precision: bf16

@@ -1,0 +1,16 @@
+# Table 1 / S1 trajectory: Pancreas endocrinogenesis. Expected CBDir = 0.862.
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: trajectory
+data:
+  name: pancreas
+  source: "scVelo datasets (Bastidas-Ponce et al. 2019)"
+  n_cells: 3696
+  platform: inDrop
+  split: { strategy: full_dataset_evaluation }
+expected:
+  cbdir: 0.862
+  dtw: null      # paper lists averaged DTW of 1.387 across 3 datasets (Table 1)

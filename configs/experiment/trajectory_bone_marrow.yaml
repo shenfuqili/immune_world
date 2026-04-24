@@ -1,0 +1,15 @@
+# Table 1 / S1 trajectory: Bone Marrow. Expected CBDir = 0.907 (paper §2.3 L285).
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: trajectory
+data:
+  name: bone_marrow
+  source: "scVelo datasets (Setty et al. 2019)"
+  n_cells: 5780
+  platform: "10x Chromium"
+  split: { strategy: full_dataset_evaluation }
+expected:
+  cbdir: 0.907

@@ -1,0 +1,19 @@
+# Table 1 column: Replogle K562. Expected Pearson r = 0.712 ± 0.015.
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: perturbation
+data:
+  name: replogle_k562
+  accession: GSE132080
+  n_cells: 162751
+  n_perturbations: 1093
+  platform: "10x Chromium"
+  split:
+    strategy: perturbation_identity
+    ratio: [0.8, 0.1, 0.1]
+expected:
+  pearson_r: 0.712
+  pearson_r_std: 0.015

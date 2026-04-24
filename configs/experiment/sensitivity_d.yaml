@@ -1,0 +1,14 @@
+# Table S3 row: embedding dimension d.
+defaults:
+  - main
+  - _self_
+
+phase: sensitivity
+sweep:
+  d_model: [128, 256, 384, 512, 768, 1024, 1536]
+default: 512
+expected:
+  # Cells at d=1536 are marked with ‡ (extrapolated beyond the six-point scan).
+  norman_pearson_r: [0.834, 0.871, 0.897, 0.914, 0.911, 0.908, 0.902]
+  trajectory_cbdir: [0.798, 0.841, 0.867, 0.881, 0.878, 0.873, 0.867]
+  icb_auc:          [0.847, 0.868, 0.881, 0.891, 0.889, 0.887, 0.882]

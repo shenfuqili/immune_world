@@ -1,0 +1,13 @@
+# Table 3 row: w/o cross-cancer transfer. Expected ICB AUC = 0.762 (-0.129).
+defaults:
+  - main
+  - _self_
+
+phase: ablation
+ablate:
+  cross_cancer_transfer: true         # drops CrossCancerHead + GRL branch
+expected:
+  norman_pearson_r: 0.880
+  bm_cbdir: 0.864
+  deconv_f1: 0.719
+  icb_auc: 0.762

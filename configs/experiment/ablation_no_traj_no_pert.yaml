@@ -1,0 +1,15 @@
+# Table 3 row: w/o TrajAttn + w/o perturbation engine (super-additive interaction,
+# Δ_obs = -0.381 vs Δ_exp = -0.329; interaction = -0.052).
+defaults:
+  - main
+  - _self_
+
+phase: ablation
+ablate:
+  trajectory_aware_attention: true
+  perturbation_engine: true
+expected:
+  norman_pearson_r: 0.533
+  bm_cbdir: 0.614
+  deconv_f1: 0.668
+  icb_auc: 0.793

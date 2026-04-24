@@ -1,0 +1,6 @@
+# Pretraining-only run.
+defaults:
+  - main
+  - _self_
+
+phase: pretrain

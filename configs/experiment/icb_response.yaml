@@ -1,0 +1,35 @@
+# Table 1 / Table 2 ICB column: 14 cohorts, 7 cancer types, LOO-CV. Expected AUC = 0.891 ± 0.014.
+defaults:
+  - main
+  - _self_
+
+phase: finetune
+task: icb
+data:
+  name: icbatlas
+  source: "ICBatlas (Tang et al. 2023 [24])"
+  access_url: "http://bioinfo.life.hust.edu.cn/ICBatlas/"
+  cohorts: 14
+  cancer_types: 7
+  total_patients: 2834
+  platform: "RNA-seq bulk"
+  split: { strategy: leave_one_cohort_out }
+  per_cancer:
+    melanoma:   { cohorts: 4, patients: 847 }
+    nsclc:      { cohorts: 3, patients: 612 }
+    urothelial: { cohorts: 2, patients: 398 }
+    rcc:        { cohorts: 2, patients: 341 }
+    hcc:        { cohorts: 1, patients: 231 }
+    gastric:    { cohorts: 1, patients: 187 }
+    hnscc:      { cohorts: 1, patients: 218 }
+expected:
+  overall_auc: 0.891
+  overall_auc_std: 0.014
+  per_cancer_auc:
+    melanoma: { auc: 0.923, std: 0.011 }
+    nsclc:    { auc: 0.897, std: 0.018 }
+    urothelial: { auc: 0.884, std: 0.022 }
+    rcc:      { auc: 0.871, std: 0.019 }
+    hcc:      { auc: 0.834, std: 0.029 }
+    gastric:  { auc: 0.847, std: 0.025 }
+    hnscc:    { auc: 0.878, std: 0.021 }

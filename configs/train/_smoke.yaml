@@ -1,0 +1,8 @@
+# Smoke training schedule.
+optimizer: AdamW
+lr: 1.0e-3
+weight_decay: 0.0
+epochs: 1
+batch_size: 4
+warmup_steps: 0
+scheduler: constant

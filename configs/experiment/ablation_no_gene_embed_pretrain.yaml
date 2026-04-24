@@ -1,0 +1,13 @@
+# Table 3 row: w/o gene-embedding pretraining. Expected Pearson r(Norman) = 0.831 (-0.083).
+defaults:
+  - main
+  - _self_
+
+phase: ablation
+ablate:
+  gene_embedding_pretrain: true       # random-init E instead of Gene2Vec + retrain
+expected:
+  norman_pearson_r: 0.831
+  bm_cbdir: 0.827
+  deconv_f1: 0.699
+  icb_auc: 0.856

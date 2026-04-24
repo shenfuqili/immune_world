@@ -1,0 +1,16 @@
+# Table 5: compute cost comparison — params / pretrain GPU-h / inference throughput / memory.
+defaults:
+  - main
+  - _self_
+
+phase: benchmark
+benchmark:
+  batch_size: 256
+  device: cuda
+  targets:
+    - { method: ImmuneWorld,  params_m: 68,  pretrain_gpu_h: 288,   cells_s: 14200, memory_gb: 6.2 }
+    - { method: scGPT,        params_m: 51,  pretrain_gpu_h: 960,   cells_s:  5100, memory_gb: 12.8 }
+    - { method: scFoundation, params_m: 100, pretrain_gpu_h: 2400,  cells_s:  3800, memory_gb: 18.4 }
+    - { method: CellFM,       params_m: 85,  pretrain_gpu_h: 1800,  cells_s:  4200, memory_gb: 15.6 }
+    - { method: Geneformer,   params_m: 10,  pretrain_gpu_h: 480,   cells_s:  8900, memory_gb:  4.1 }
+    - { method: UCE,          params_m: 650, pretrain_gpu_h: 23040, cells_s:  1220, memory_gb: 48.1 }

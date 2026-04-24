@@ -1,0 +1,17 @@
+# Pretraining schedule — Sec. 4.6 L690-L693. See docs/project-context.md §8.
+defaults:
+  - base
+
+lr: 1.0e-4
+weight_decay: 0.01
+warmup_steps: 5000
+scheduler: cosine
+lr_min: 1.0e-6
+epochs: 200
+batch_size: 512            # per GPU
+world_size: 4              # 4× A100 80 GB
+loss_weights:
+  lambda_traj: 1.0
+  lambda_recon: 0.5
+  lambda_pert: 0.3
+precision: bf16            # see docs/deviations.md — paper silent on fp16 vs bf16

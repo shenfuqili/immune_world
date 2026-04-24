@@ -1,0 +1,27 @@
+# Table S4: worst-10 samples failure-mode breakdown.
+defaults:
+  - main
+  - _self_
+
+phase: diagnostics
+output:
+  csv: "assets/table_s4_failure_analysis.csv"
+error_categories:
+  A: "pretraining corpus under-represents the cell type"
+  B: "combinatorial perturbation beyond model capacity"
+  C: "small cohort → high variance"
+  D: "immunologically cold TIME, limited infiltration"
+  E: "rare perturbation target with <5 training examples"
+targets:
+  perturbation_worst:
+    - { task: Norman, sample_id: "AHR+KLF1",        value: 0.412, type: B, reason: "Rare TF combination; 2 training examples" }
+    - { task: Norman, sample_id: "FOXF1+FOXL2",     value: 0.467, type: B, reason: "Dual FOX-family perturbation with epistatic effects" }
+    - { task: Norman, sample_id: "SPI1",            value: 0.523, type: A, reason: "Myeloid master regulator; myeloid-sparse corpus" }
+    - { task: Norman, sample_id: "CEBPA+RUNX1",     value: 0.541, type: "A,B", reason: "Myeloid differentiation TFs; combinatorial" }
+    - { task: Norman, sample_id: "BCORL1",          value: 0.558, type: E, reason: "Rare target (3 training perturbations)" }
+    - { task: K562,   sample_id: "ZNF274",          value: 0.298, type: E, reason: "Zinc finger with poorly characterised function" }
+    - { task: K562,   sample_id: "ZBTB7A",          value: 0.334, type: E, reason: "Rare transcriptional repressor" }
+    - { task: K562,   sample_id: "ARID1A+SMARCA4",  value: 0.371, type: B, reason: "Chromatin remodelling complex (epistatic)" }
+  icb_worst:
+    - { cohort: HCC-1, value: 0.834, type: D, reason: "Immunologically cold; sparse TIL infiltration" }
+    - { cohort: GC-1,  value: 0.847, type: A, reason: "Myeloid-dominated TIME; corpus mismatch" }

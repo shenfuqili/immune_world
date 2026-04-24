@@ -1,0 +1,20 @@
+# Table 4 top: Leave-one-cancer-out cross-validation. Expected mean AUC = 0.867 ± 0.024.
+defaults:
+  - main
+  - _self_
+
+phase: evaluation
+task: icb
+data:
+  split: { strategy: leave_one_cancer_out }
+expected:
+  mean_auc: 0.867
+  mean_auc_std: 0.024
+  per_held_out_cancer:
+    melanoma:   0.910
+    nsclc:      0.878
+    urothelial: 0.863
+    rcc:        0.851
+    hcc:        0.790
+    gastric:    0.821
+    hnscc:      0.858
